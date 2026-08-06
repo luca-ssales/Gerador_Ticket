@@ -1,0 +1,193 @@
+[
+  {
+    "id": "TCK-0001",
+    "title": "Tempo limite de conexão do banco de dados no cluster de produção",
+    "description": "Estamos observando tempos limites de conexão intermitentes dos servidores de aplicativos principais para o cluster de banco de dados primário (DB-PROD-01) na região US-East.\n\nOs logs indicam que os pools de conexão estão se esgotando, mas as métricas de CPU e memória do banco de dados parecem normais. Isso começou por volta das 08:45 AM UTC após a recente implantação do microsserviço v2.4.",
+    "codeSnippet": "Error: ETIMEDOUT connect ETIMEDOUT 10.0.1.45:5432\nat TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)",
+    "status": "Em Andamento",
+    "priority": "Crítico",
+    "category": "Infraestrutura / Banco de Dados",
+    "assignee": {
+      "name": "John Smith",
+      "initials": "JS",
+      "email": "john.smith@supportdesk.com"
+    },
+    "reporter": {
+      "name": "Michael Chen",
+      "email": "michael.chen@supportdesk.com"
+    },
+    "createdAt": "2026-08-06T13:20:00Z",
+    "timeAgo": "há 2 horas",
+    "attachments": [
+      {
+        "name": "datadog_metrics_spike.png",
+        "size": "1.4 MB",
+        "type": "Image",
+        "icon": "monitoring"
+      },
+      {
+        "name": "app_server_logs.txt",
+        "size": "256 KB",
+        "type": "Text",
+        "icon": "description"
+      }
+    ],
+    "sla": {
+      "responseTime": "Cumprido (5m)",
+      "resolutionDeadline": "em 1h 30min",
+      "progressPercent": 75
+    },
+    "logs": [
+      { "text": "Status atualizado para Em Andamento", "user": "Sistema", "time": "há 2 horas" },
+      { "text": "Prioridade elevada para Crítico", "user": "Sarah Jenkins", "time": "há 2.5 horas" },
+      { "text": "Chamado Criado", "user": "Michael Chen", "time": "há 3 horas" }
+    ]
+  },
+  {
+    "id": "TK-4029",
+    "title": "Conexão com o banco de dados falhando intermitentemente",
+    "description": "Instâncias de homologação estão perdendo conectividade com o PostgreSQL.",
+    "status": "Aberto",
+    "priority": "Alta",
+    "category": "Rede",
+    "assignee": {
+      "name": "Sarah Jenkins",
+      "initials": "SJ",
+      "email": "sarah.jenkins@supportdesk.com"
+    },
+    "reporter": {
+      "name": "Carlos Lima",
+      "email": "carlos.lima@empresa.com"
+    },
+    "createdAt": "2026-08-06T16:18:00Z",
+    "timeAgo": "há 2 min",
+    "attachments": [],
+    "logs": [{ "text": "Chamado Criado", "user": "Carlos Lima", "time": "há 2 min" }]
+  },
+  {
+    "id": "TK-4028",
+    "title": "Usuário não consegue redefinir senha por e-mail",
+    "description": "Servidor SMTP rejeitando conexões para redefinição de credenciais de login.",
+    "status": "Em Andamento",
+    "priority": "Média",
+    "category": "Acesso",
+    "assignee": {
+      "name": "Mike Wong",
+      "initials": "MW",
+      "email": "mike.wong@supportdesk.com"
+    },
+    "reporter": {
+      "name": "Mariana Costa",
+      "email": "mariana.costa@empresa.com"
+    },
+    "createdAt": "2026-08-06T16:05:00Z",
+    "timeAgo": "há 15 min",
+    "attachments": [],
+    "logs": [{ "text": "Chamado Atribuído a Mike Wong", "user": "Sistema", "time": "há 10 min" }]
+  },
+  {
+    "id": "TK-4027",
+    "title": "Atualizar endereço de cobrança para fatura do 3º trimestre",
+    "description": "Ajuste fiscal requerido no cadastro da conta corporativa.",
+    "status": "Resolvido",
+    "priority": "Baixa",
+    "category": "Software",
+    "assignee": {
+      "name": "David Barnes",
+      "initials": "DB",
+      "email": "david.barnes@supportdesk.com"
+    },
+    "reporter": {
+      "name": "Financeiro",
+      "email": "financeiro@empresa.com"
+    },
+    "createdAt": "2026-08-06T15:20:00Z",
+    "timeAgo": "há 1 hora",
+    "attachments": [],
+    "logs": [{ "text": "Status alterado para Resolvido", "user": "David Barnes", "time": "há 30 min" }]
+  },
+  {
+    "id": "SD-1042",
+    "title": "Não consigo acessar a VPN remotamente",
+    "description": "Usuário relatando falhas de autenticação ao tentar conectar via Cisco AnyConnect no escritório de São Paulo.",
+    "status": "Aberto",
+    "priority": "Alta",
+    "category": "Rede",
+    "assignee": {
+      "name": "Sarah Jenkins",
+      "initials": "SJ",
+      "email": "sarah.jenkins@supportdesk.com"
+    },
+    "reporter": {
+      "name": "Ana Paula",
+      "email": "ana.paula@empresa.com"
+    },
+    "createdAt": "2026-10-24T10:30:00Z",
+    "timeAgo": "24 Out, 10:30",
+    "attachments": [],
+    "logs": [{ "text": "Chamado Aberto", "user": "Ana Paula", "time": "24 Out, 10:30" }]
+  },
+  {
+    "id": "SD-1041",
+    "title": "Solicitando licença para Adobe Creative Cloud",
+    "description": "Preciso do Photoshop e Illustrator para a próxima campanha de marketing de final de ano.",
+    "status": "Em Andamento",
+    "priority": "Média",
+    "category": "Software",
+    "assignee": {
+      "name": "Mike Wong",
+      "initials": "MW",
+      "email": "mike.wong@supportdesk.com"
+    },
+    "reporter": {
+      "name": "Lucas Design",
+      "email": "lucas@marketing.com"
+    },
+    "createdAt": "2026-10-23T14:15:00Z",
+    "timeAgo": "23 Out, 14:15",
+    "attachments": [],
+    "logs": [{ "text": "Chamado Em Andamento", "user": "Mike Wong", "time": "23 Out, 14:15" }]
+  },
+  {
+    "id": "SD-1040",
+    "title": "Monitor piscando na Sala de Conferência B",
+    "description": "A tela principal de apresentação desliga aleatoriamente durante as reuniões de diretoria.",
+    "status": "Resolvido",
+    "priority": "Baixa",
+    "category": "Hardware",
+    "assignee": {
+      "name": "David Barnes",
+      "initials": "DB",
+      "email": "david.barnes@supportdesk.com"
+    },
+    "reporter": {
+      "name": "Recepção",
+      "email": "recepcao@empresa.com"
+    },
+    "createdAt": "2026-10-23T09:00:00Z",
+    "timeAgo": "23 Out, 09:00",
+    "attachments": [],
+    "logs": [{ "text": "Cabo HDMI substituído", "user": "David Barnes", "time": "23 Out, 11:00" }]
+  },
+  {
+    "id": "SD-1039",
+    "title": "Solicitação de redefinição de senha para portal interno",
+    "description": "Bloqueado da conta após várias tentativas de login malsucedidas.",
+    "status": "Resolvido",
+    "priority": "Alta",
+    "category": "Acesso",
+    "assignee": {
+      "name": "Sarah Jenkins",
+      "initials": "SJ",
+      "email": "sarah.jenkins@supportdesk.com"
+    },
+    "reporter": {
+      "name": "Roberto Silva",
+      "email": "roberto@empresa.com"
+    },
+    "createdAt": "2026-10-22T16:45:00Z",
+    "timeAgo": "22 Out, 16:45",
+    "attachments": [],
+    "logs": [{ "text": "Senha provisória enviada", "user": "Sarah Jenkins", "time": "22 Out, 17:00" }]
+  }
+]

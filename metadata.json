@@ -1,0 +1,6 @@
+{
+  "name": "SupportDesk",
+  "description": "Portal do Administrador e gerenciador de chamados em HTML, CSS e JavaScript com persistência em arquivos JSON.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

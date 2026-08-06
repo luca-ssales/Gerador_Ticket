@@ -1,0 +1,12 @@
+{
+  "systemName": "SupportDesk",
+  "portalSubtitle": "Portal do Administrador",
+  "adminEmail": "admin@supportdesk.com",
+  "notificationsEnabled": true,
+  "autoAssign": true,
+  "defaultPriority": "Média",
+  "slaResponseHours": 2,
+  "slaResolutionHours": 24,
+  "dbStorageType": "Arquivos JSON Locais (/data/*.json)",
+  "language": "pt-BR"
+}
