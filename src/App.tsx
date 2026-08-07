@@ -17,6 +17,22 @@ export default function App() {
   const [selectedTicketId, setSelectedTicketId] = useState<string | null>('TCK-0001');
   const [selectedTicket, setSelectedTicket] = useState<Ticket | null>(null);
 
+  // Theme state ('light' | 'dark')
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark' || saved === 'light') return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
+
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [users, setUsers] = useState<User[]>([]);
   const [stats, setStats] = useState<Stats | null>(null);
@@ -118,7 +134,7 @@ export default function App() {
   }
 
   return (
-    <div className="bg-[#f8f9ff] text-[#0b1c30] min-h-screen flex font-sans antialiased">
+    <div className="bg-[#f8f9ff] dark:bg-[#0b1329] text-[#0b1c30] dark:text-slate-100 min-h-screen flex font-sans antialiased transition-colors duration-200">
       {/* Desktop Sidebar */}
       <Sidebar
         currentView={currentView}
@@ -137,7 +153,7 @@ export default function App() {
             className="fixed inset-0 bg-black/50"
             onClick={() => setIsMobileSidebarOpen(false)}
           ></div>
-          <div className="relative w-[260px] bg-white h-full z-10 flex flex-col">
+          <div className="relative w-[260px] bg-white dark:bg-[#0f172a] h-full z-10 flex flex-col">
             <Sidebar
               currentView={currentView}
               onNavigate={(view) => {
@@ -168,6 +184,8 @@ export default function App() {
           currentUser={currentUser}
           onNavigate={setCurrentView}
           onToggleMobileSidebar={() => setIsMobileSidebarOpen(true)}
+          theme={theme}
+          onToggleTheme={toggleTheme}
         />
 
         {/* Main Content Workspace */}
@@ -199,7 +217,7 @@ export default function App() {
                 currentUser={currentUser}
               />
             ) : (
-              <div className="p-8 text-center text-[#434655]">
+              <div className="p-8 text-center text-[#434655] dark:text-slate-400">
                 Carregando detalhes do chamado...
               </div>
             )
