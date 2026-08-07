@@ -65,6 +65,23 @@ export const TicketDetailView: React.FC<TicketDetailViewProps> = ({
     }
   };
 
+  const handleQuickToggleStatus = async () => {
+    setIsUpdatingProps(true);
+    const newStatus = ticket.status === 'Resolvido' ? 'Aberto' : 'Resolvido';
+    try {
+      const updated = await updateTicket(ticket.id, {
+        status: newStatus,
+        updatedBy: currentUser?.name || 'Usuário Admin'
+      });
+      onTicketUpdated(updated);
+      setSelectedStatus(newStatus);
+    } catch (err) {
+      alert('Erro ao atualizar status do chamado no arquivo JSON');
+    } finally {
+      setIsUpdatingProps(false);
+    }
+  };
+
   const handleAddComment = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newCommentText.trim()) return;
@@ -119,16 +136,40 @@ export const TicketDetailView: React.FC<TicketDetailViewProps> = ({
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-2 shrink-0">
+              <div className="flex flex-wrap items-center gap-2 shrink-0">
                 {/* Priority Pill */}
                 <div className="bg-[#ffdad6] text-[#93000a] px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 border border-[#ffdad6]">
                   <span className="material-symbols-outlined text-[14px]">local_fire_department</span>
                   {ticket.priority}
                 </div>
                 {/* Status Pill */}
-                <div className="bg-[#ffddb8] text-[#653e00] px-3 py-1 rounded-full text-xs font-semibold border border-[#ffddb8]">
+                <div
+                  className={`px-3 py-1 rounded-full text-xs font-semibold border ${
+                    ticket.status === 'Resolvido'
+                      ? 'bg-[#dcfce7] text-[#166534] border-[#86efac]'
+                      : ticket.status === 'Em Andamento'
+                      ? 'bg-[#fef3c7] text-[#92400e] border-[#fde68a]'
+                      : 'bg-[#ffdad6] text-[#93000a] border-[#ffdad6]'
+                  }`}
+                >
                   {ticket.status}
                 </div>
+
+                {/* Quick Action Button: Concluir / Reabrir */}
+                <button
+                  disabled={isUpdatingProps}
+                  onClick={handleQuickToggleStatus}
+                  className={`px-3.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs ${
+                    ticket.status === 'Resolvido'
+                      ? 'bg-white border border-[#c3c6d7] text-[#434655] hover:bg-[#f8f9ff]'
+                      : 'bg-[#006c49] hover:bg-[#005237] text-white'
+                  }`}
+                >
+                  <span className="material-symbols-outlined text-[16px]">
+                    {ticket.status === 'Resolvido' ? 'undo' : 'check_circle'}
+                  </span>
+                  {ticket.status === 'Resolvido' ? 'Reabrir Chamado' : 'Concluir Chamado'}
+                </button>
               </div>
             </div>
 

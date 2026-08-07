@@ -60,6 +60,7 @@ export interface User {
   id: string;
   name: string;
   email: string;
+  password?: string;
   role: string;
   department: string;
   initials: string;
@@ -75,6 +76,7 @@ export interface Stats {
   weeklyOpenTrend: string;
   weeklyInProgressTrend: string;
   weeklyResolvedTrend: string;
+  isCleanState?: boolean;
   dbSource?: string;
 }
 

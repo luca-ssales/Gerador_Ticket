@@ -1,43 +1,11 @@
 [
   {
-    "id": "usr-1",
-    "name": "Usuário Admin",
-    "email": "admin@supportdesk.com",
+    "id": "usr-1786061088752",
+    "name": "Lucas teste",
+    "email": "lucas@admin.com",
     "role": "Administrador",
-    "department": "TI / Operações",
-    "initials": "UA",
-    "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuADqUgTw7MD9m8PWAOgcSrGJYgBUBqzv4XvJ2YRYJ3PPcJWVw5AzQyc51SnrK84utlrpOyJYYqXrkvlUCcqBmIVBhzOetLlfwHd6upCznu-STlAiBnUFOJdsi3fw0oN2zu_JPEzmwqvMdH2BodBzm6aVEQ1ReBUr6ed-MnVDQdkizRs7aYBCbD2k4lxoIJqcIu1uP4Ft0-BxR_WXhgtzVNnQl_mtIsSj9FIOoz3WhzEkluwtm_gh3o"
-  },
-  {
-    "id": "usr-2",
-    "name": "Sarah Jenkins",
-    "email": "sarah.jenkins@supportdesk.com",
-    "role": "Ops de Sistema",
-    "department": "Infraestrutura",
-    "initials": "SJ"
-  },
-  {
-    "id": "usr-3",
-    "name": "John Smith",
-    "email": "john.smith@supportdesk.com",
-    "role": "Líder de Dev",
-    "department": "Desenvolvimento",
-    "initials": "JS"
-  },
-  {
-    "id": "usr-4",
-    "name": "Mike Wong",
-    "email": "mike.wong@supportdesk.com",
-    "role": "Suporte Nível 2",
-    "department": "Software",
-    "initials": "MW"
-  },
-  {
-    "id": "usr-5",
-    "name": "David Barnes",
-    "email": "david.barnes@supportdesk.com",
-    "role": "Técnico de Hardware",
-    "department": "Hardware",
-    "initials": "DB"
+    "department": "Suporte",
+    "initials": "LT",
+    "password": "123"
   }
 ]

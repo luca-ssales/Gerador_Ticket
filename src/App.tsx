@@ -91,6 +91,20 @@ export default function App() {
     setUsers(updatedUsers);
   };
 
+  const handleUpdateUser = async (id: string, userData: Partial<User>) => {
+    const { updateUser } = await import('./api');
+    await updateUser(id, userData);
+    const updatedUsers = await fetchUsers();
+    setUsers(updatedUsers);
+  };
+
+  const handleDeleteUser = async (id: string) => {
+    const { deleteUser } = await import('./api');
+    await deleteUser(id);
+    const updatedUsers = await fetchUsers();
+    setUsers(updatedUsers);
+  };
+
   // If user is on Login View
   if (currentView === 'login') {
     return (
@@ -192,10 +206,15 @@ export default function App() {
           )}
 
           {currentView === 'users' && (
-            <UsersView users={users} onAddUser={handleAddUser} />
+            <UsersView
+              users={users}
+              onAddUser={handleAddUser}
+              onUpdateUser={handleUpdateUser}
+              onDeleteUser={handleDeleteUser}
+            />
           )}
 
-          {currentView === 'settings' && <SettingsView />}
+          {currentView === 'settings' && <SettingsView onResetData={reloadData} />}
         </main>
       </div>
 

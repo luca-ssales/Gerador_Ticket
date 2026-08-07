@@ -85,6 +85,24 @@ export async function createUser(userData: Partial<User>): Promise<User> {
   return res.json();
 }
 
+export async function updateUser(id: string, userData: Partial<User>): Promise<User> {
+  const res = await fetch(`${API_BASE}/users/${id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(userData)
+  });
+  if (!res.ok) throw new Error('Erro ao atualizar usuário');
+  return res.json();
+}
+
+export async function deleteUser(id: string): Promise<{ success: boolean }> {
+  const res = await fetch(`${API_BASE}/users/${id}`, {
+    method: 'DELETE'
+  });
+  if (!res.ok) throw new Error('Erro ao excluir usuário');
+  return res.json();
+}
+
 export async function fetchSettings(): Promise<Settings> {
   const res = await fetch(`${API_BASE}/settings`);
   if (!res.ok) throw new Error('Erro ao carregar configurações');
@@ -108,5 +126,15 @@ export async function loginUser(email: string, password?: string) {
     body: JSON.stringify({ email, password })
   });
   if (!res.ok) throw new Error('Erro na autenticação');
+  return res.json();
+}
+
+export async function resetTickets(action: 'clear' | 'seed' = 'clear'): Promise<{ success: boolean; message: string }> {
+  const res = await fetch(`${API_BASE}/tickets/reset`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action })
+  });
+  if (!res.ok) throw new Error('Erro ao resetar dados');
   return res.json();
 }

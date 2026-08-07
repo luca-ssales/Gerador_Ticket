@@ -6,5 +6,6 @@
   "weeklyTotalTrend": "+12% nesta semana",
   "weeklyOpenTrend": "+5% nesta semana",
   "weeklyInProgressTrend": "Estável",
-  "weeklyResolvedTrend": "+18% nesta semana"
+  "weeklyResolvedTrend": "+18% nesta semana",
+  "isCleanState": false
 }
